@@ -55,7 +55,7 @@ namespace adonet_db_videogame
                         long id = Convert.ToInt64(Console.ReadLine());
                         VideogameManager.IdSearchVideogame(id);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.ToString());
                     }
@@ -76,6 +76,16 @@ namespace adonet_db_videogame
                     break;
 
                 case 4:  Console.WriteLine("Funzione 4");
+                    try
+                    {
+                        Console.WriteLine("Inserisci l'Id della Riga da !!ELIMINARE!!: ");
+                        long id = Convert.ToInt64(Console.ReadLine());
+                        VideogameManager.DeleteVideogame(id);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                     break;
 
                 case 5: Console.WriteLine("Funzione 5");

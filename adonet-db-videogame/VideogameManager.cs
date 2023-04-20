@@ -76,8 +76,19 @@ namespace adonet_db_videogame
         }
 
         //4 cancellare un videogioco
-        public static void DeleteVideogame()
+        public static void DeleteVideogame(long id)
         {
+            const string conn = "Data Source=localhost;Initial Catalog=prova;Integrated Security=True";
+            using SqlConnection connection = new SqlConnection(conn);
+            connection.Open();
+            Console.WriteLine("Connessione Effettuata con successo!");
+
+            long queryId = id;
+
+            string sqlQuery = $"DELETE FROM videogames WHERE id = {queryId}";
+
+            using SqlCommand cmd = new SqlCommand( sqlQuery, connection);
+            cmd.ExecuteNonQuery();
 
         }
         //5 chiudere il programma
