@@ -7,19 +7,20 @@ namespace adonet_db_videogame
         static void Main(string[] args)
         {
             Console.WriteLine("\t Benvenuto!");
-            Console.WriteLine("\t Seleziona un operazione digitando il numero corrispondente");
 
-            Console.WriteLine("\t (1)    inserire un nuovo videogioco");
-            Console.WriteLine("\t (2)    ricercare un videogioco per id");
-            Console.WriteLine("\t (3)    ricercare tutti i videogiochi aventi il nome contenente una determinata stringa inserita in input");
-            Console.WriteLine("\t (4)    cancellare un videogioco");
-            Console.WriteLine("\t (5)    chiudere il programma");
-
-            int selector = Convert.ToInt32(Console.ReadLine());
 
             bool exitProgram = false;
             while (!exitProgram)
             {
+                Console.WriteLine("\t Seleziona un operazione digitando il numero corrispondente");
+
+                Console.WriteLine("\t (1)    inserire un nuovo videogioco");
+                Console.WriteLine("\t (2)    ricercare un videogioco per id");
+                Console.WriteLine("\t (3)    ricercare tutti i videogiochi aventi il nome contenente una determinata stringa inserita in input");
+                Console.WriteLine("\t (4)    cancellare un videogioco");
+                Console.WriteLine("\t (5)    chiudere il programma");
+
+                int selector = Convert.ToInt32(Console.ReadLine());
 
                 switch (selector)
                 {
