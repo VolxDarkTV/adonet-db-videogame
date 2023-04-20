@@ -96,7 +96,7 @@ namespace adonet_db_videogame
                     case 5: Console.WriteLine("Funzione 5");
                         try
                         {
-                            Console.WriteLine("Sicuro di voler Terminare il Programma?");
+                            Console.WriteLine("Sicuro di voler Terminare il Programma? (s/n)");
                             string str = Console.ReadLine().ToLower();
                             if (str == "s")
                             {
