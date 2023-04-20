@@ -42,16 +42,37 @@ namespace adonet_db_videogame
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine(ex);
+                            Console.WriteLine(ex.ToString());
                         }
                     }
 
                     break; 
 
                 case 2: Console.WriteLine("Funzione 2");
+                    try
+                    {
+                        Console.WriteLine("Inserisci l'ID del Gioco: ");
+                        long id = Convert.ToInt64(Console.ReadLine());
+                        VideogameManager.IdSearchVideogame(id);
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+
                     break;
 
                 case 3: Console.WriteLine("Funzione 3");
+                    try
+                    {
+                        Console.WriteLine("Inserisci la Stringa: ");
+                        string str = Console.ReadLine();
+                        VideogameManager.SearchVideogame(str);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
                     break;
 
                 case 4:  Console.WriteLine("Funzione 4");
