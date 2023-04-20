@@ -20,19 +20,31 @@ namespace adonet_db_videogame
             switch (selector)
             {
                 case 1: Console.WriteLine("Funzione 1");
+                    bool error = false;
+                    while (!error) 
+                    {
+                        try
+                        {
+                            Console.WriteLine("Nome: ");
+                            string queryName = Console.ReadLine();
 
-                    Console.WriteLine("Nome: ");
-                    string queryName = Console.ReadLine();
+                            Console.WriteLine("Overview: ");
+                            string queryOverview = Console.ReadLine();
 
-                    Console.WriteLine("Overview: ");
-                    string queryOverview = Console.ReadLine();
+                            string queryDate = DateTime.Now.ToString("dd/MM/yyyy");
 
-                    string queryDate = DateTime.Now.ToString("dd/MM/yyyy");
+                            Console.WriteLine("Software House ID: ");
+                            long querySoftwareHouseId = Convert.ToInt64(Console.ReadLine());
 
-                    Console.WriteLine("Software House ID: ");
-                    long querySoftwareHouseId = Convert.ToInt64(Console.ReadLine());
+                            VideogameManager.AddData(queryName, queryOverview, querySoftwareHouseId);
 
-                    VideogameManager.AddData(queryName, queryOverview, querySoftwareHouseId);
+                            error = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                        }
+                    }
 
                     break; 
 
