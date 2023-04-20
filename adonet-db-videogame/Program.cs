@@ -17,80 +17,101 @@ namespace adonet_db_videogame
 
             int selector = Convert.ToInt32(Console.ReadLine());
 
-            switch (selector)
+            bool exitProgram = false;
+            while (!exitProgram)
             {
-                case 1: Console.WriteLine("Funzione 1");
-                    bool error = false;
-                    while (!error) 
-                    {
+
+                switch (selector)
+                {
+                    case 1: Console.WriteLine("Funzione 1");
+                        bool error = false;
+                        while (!error) 
+                        {
+                            try
+                            {
+                                Console.WriteLine("Nome: ");
+                                string queryName = Console.ReadLine();
+
+                                Console.WriteLine("Overview: ");
+                                string queryOverview = Console.ReadLine();
+
+                                string queryDate = DateTime.Now.ToString("dd/MM/yyyy");
+
+                                Console.WriteLine("Software House ID: ");
+                                long querySoftwareHouseId = Convert.ToInt64(Console.ReadLine());
+
+                                VideogameManager.AddData(queryName, queryOverview, querySoftwareHouseId);
+
+                                error = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.ToString());
+                            }
+                        }
+
+                        break; 
+
+                    case 2: Console.WriteLine("Funzione 2");
                         try
                         {
-                            Console.WriteLine("Nome: ");
-                            string queryName = Console.ReadLine();
-
-                            Console.WriteLine("Overview: ");
-                            string queryOverview = Console.ReadLine();
-
-                            string queryDate = DateTime.Now.ToString("dd/MM/yyyy");
-
-                            Console.WriteLine("Software House ID: ");
-                            long querySoftwareHouseId = Convert.ToInt64(Console.ReadLine());
-
-                            VideogameManager.AddData(queryName, queryOverview, querySoftwareHouseId);
-
-                            error = true;
+                            Console.WriteLine("Inserisci l'ID del Gioco: ");
+                            long id = Convert.ToInt64(Console.ReadLine());
+                            VideogameManager.IdSearchVideogame(id);
                         }
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.ToString());
                         }
-                    }
 
-                    break; 
+                        break;
 
-                case 2: Console.WriteLine("Funzione 2");
-                    try
-                    {
-                        Console.WriteLine("Inserisci l'ID del Gioco: ");
-                        long id = Convert.ToInt64(Console.ReadLine());
-                        VideogameManager.IdSearchVideogame(id);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
+                    case 3: Console.WriteLine("Funzione 3");
+                        try
+                        {
+                            Console.WriteLine("Inserisci la Stringa: ");
+                            string str = Console.ReadLine();
+                            VideogameManager.SearchVideogame(str);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+                        break;
 
-                    break;
+                    case 4:  Console.WriteLine("Funzione 4");
+                        try
+                        {
+                            Console.WriteLine("Inserisci l'Id della Riga da !!ELIMINARE!!: ");
+                            long id = Convert.ToInt64(Console.ReadLine());
+                            VideogameManager.DeleteVideogame(id);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+                        break;
 
-                case 3: Console.WriteLine("Funzione 3");
-                    try
-                    {
-                        Console.WriteLine("Inserisci la Stringa: ");
-                        string str = Console.ReadLine();
-                        VideogameManager.SearchVideogame(str);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
-                    break;
+                    case 5: Console.WriteLine("Funzione 5");
+                        try
+                        {
+                            Console.WriteLine("Sicuro di voler Terminare il Programma?");
+                            string str = Console.ReadLine().ToLower();
+                            if (str == "s")
+                            {
+                                Environment.Exit(0);
+                                exitProgram = true;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+                        break;
+                    
+                }   
 
-                case 4:  Console.WriteLine("Funzione 4");
-                    try
-                    {
-                        Console.WriteLine("Inserisci l'Id della Riga da !!ELIMINARE!!: ");
-                        long id = Convert.ToInt64(Console.ReadLine());
-                        VideogameManager.DeleteVideogame(id);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex);
-                    }
-                    break;
-
-                case 5: Console.WriteLine("Funzione 5");
-                    break;
-            }   
+            }
 
 
         }

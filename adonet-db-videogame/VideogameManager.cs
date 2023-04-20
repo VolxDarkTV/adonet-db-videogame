@@ -91,10 +91,6 @@ namespace adonet_db_videogame
             cmd.ExecuteNonQuery();
 
         }
-        //5 chiudere il programma
-        public static void CloseProgram()
-        {
-
-        }
+       
     }
 }
